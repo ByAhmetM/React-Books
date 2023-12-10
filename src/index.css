@@ -1,0 +1,17 @@
+.navbar a {
+    text-decoration: none;
+    color: grey;
+    font-size: 19px;
+}
+
+.active {
+    color: white !important;
+    text-decoration: underline !important;
+}
+
+
+
+.card {
+    width: 200px;
+
+}
