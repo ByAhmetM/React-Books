@@ -1,18 +1,21 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import BookInfo from "./BookInfo";
 
 const Detay = () => {
   const { id } = useParams();
   const [book, setBook] = useState({});
 
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get(`http://localhost:4500/books/${id}`)
-      .then((res) => setBook(res.data));
+      .then((res) => setBook(res.data))
+      .catch((error) => {
+        navigate("/undefined", { state: error.response.status });
+      });
   }, [id]);
-  console.log(book);
   return (
     <div className="row p-5 align-items-center">
       <div className="col-md-6 ">

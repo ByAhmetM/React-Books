@@ -10,7 +10,6 @@ const BooksPage = () => {
       .then((res) => setBooks(res.data))
       .catch((err) => console.log(err));
   }, []);
-  console.log(books);
 
   return (
     <div className="d-flex justify-content-between flex-wrap p-5 gap-5">
